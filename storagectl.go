@@ -20,7 +20,8 @@ func main() {
 	}
 	app.Commands = []cli.Command{
 		cli.Command{
-			Name: "azure",
+			Name:  "s3",
+			Usage: "options for s3 storage",
 			Subcommands: []cli.Command{
 				command.NewS3LsCommand(),
 				command.NewS3UploadCommand(),
@@ -28,7 +29,8 @@ func main() {
 			},
 		},
 		cli.Command{
-			Name: "s3",
+			Name:  "azure",
+			Usage: "options for azure storage",
 			Subcommands: []cli.Command{
 				command.NewAzureLsCommand(),
 				command.NewAzureUploadCommand(),
@@ -37,6 +39,10 @@ func main() {
 		},
 	}
 
-	app.Run(os.Args)
-	fmt.Println("Finish.")
+	err := app.Run(os.Args)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Finish.")
+	}
 }
