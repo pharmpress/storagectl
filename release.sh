@@ -1,5 +1,6 @@
 #!/bin/bash
 
+description="${1:-"first release!"}"
 version=$(grep -E -o "[0-9]+\.[0-9]+\.[0-9]+\+git" ./version/version.go 
 )
 
@@ -22,7 +23,7 @@ then
 	--repo storagectl \
 	--tag "v$currentversion" \
 	--name "v$currentversion" \
-	--description "first release!"
+	--description "$description"
 
     github-release upload \
 	--user pharmpress \
