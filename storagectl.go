@@ -13,7 +13,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "storagectl"
 	app.Version = version.Version
-	app.Usage = "A simple command line client for azure storage."
+	app.Usage = "A simple command line client for azure and s3 storage."
 	app.Flags = []cli.Flag{
 		cli.StringFlag{Name: "account-name", Value: "", Usage: "Account name"},
 		cli.StringFlag{Name: "account-key", Value: "", Usage: "Account key"},
